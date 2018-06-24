@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using OnlineShop.Model.Abstract;
 
-namespace TeduShop.Model.Models
+namespace OnlineShop.Model.Models
 {
     [Table("Posts")]
     public class Post : Auditable
