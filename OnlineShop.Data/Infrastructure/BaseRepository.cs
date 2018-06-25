@@ -41,40 +41,40 @@ namespace OnlineShop.Data.Infrastructure
 
         #region Methods Implementation
 
-        public T Add(T entity)
+        public virtual T Add(T entity)
         {
             return dbSet.Add(entity);
         }
 
-        public bool CheckContains(Expression<Func<T, bool>> predicate)
+        public virtual bool CheckContains(Expression<Func<T, bool>> predicate)
         {
             return dbContext.Set<T>().Count<T>(predicate) > 0;
         }
 
-        public int Count(Expression<Func<T, bool>> where)
+        public virtual int Count(Expression<Func<T, bool>> where)
         {
             return dbSet.Count(where);
         }
 
-        public T Delete(T entity)
+        public virtual T Delete(T entity)
         {
             return dbSet.Remove(entity);
         }
 
-        public T Delete(int id)
+        public virtual T Delete(int id)
         {
             var entity = dbSet.Find(id);
             return dbSet.Remove(entity);
         }
 
-        public void DeleteMulti(Expression<Func<T, bool>> where)
+        public virtual void DeleteMulti(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
             foreach (T item in objects)
                 dbSet.Remove(item);
         }
 
-        public IEnumerable<T> GetAll(string[] includes = null)
+        public virtual IEnumerable<T> GetAll(string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
             {
@@ -86,7 +86,7 @@ namespace OnlineShop.Data.Infrastructure
             return dbContext.Set<T>().AsQueryable();
         }
 
-        public IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null)
+        public virtual IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
             {
@@ -98,7 +98,7 @@ namespace OnlineShop.Data.Infrastructure
             return dbContext.Set<T>().Where<T>(predicate).AsQueryable<T>();
         }
 
-        public IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> predicate, out int total, int index = 0, int size = 50, string[] includes = null)
+        public virtual IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> predicate, out int total, int index = 0, int size = 50, string[] includes = null)
         {
             int skipCount = index * size;
             IQueryable<T> _resetSet;
@@ -120,7 +120,7 @@ namespace OnlineShop.Data.Infrastructure
             return _resetSet.AsQueryable();
         }
 
-        public T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null)
+        public virtual T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
             {
@@ -132,9 +132,15 @@ namespace OnlineShop.Data.Infrastructure
             return dbContext.Set<T>().FirstOrDefault(expression);
         }
 
-        public T GetSingleByID(int id)
+        public virtual T GetSingleByID(int id)
         {
             return dbSet.Find(id);
+        }
+
+        public virtual void Update(T entity)
+        {
+            dbSet.Attach(entity);
+            dbContext.Entry(entity).State = EntityState.Modified;
         }
 
         #endregion Methods Implementation

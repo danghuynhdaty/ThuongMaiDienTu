@@ -9,6 +9,9 @@ namespace OnlineShop.Data.Infrastructure
         //Marks an entity as new
         T Add(T entity);
 
+        // Marks an entity as modified
+        void Update(T entity);
+
         //Marks an entity to be removed
         T Delete(T entity);
 
