@@ -62,6 +62,10 @@
     <Compile Include="Migrations\201806241500398_AddErrorVisitorStatistic.Designer.cs">
       <DependentUpon>201806241500398_AddErrorVisitorStatistic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806251738551_UpdateAuditable.cs" />
+    <Compile Include="Migrations\201806251738551_UpdateAuditable.Designer.cs">
+      <DependentUpon>201806251738551_UpdateAuditable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806241500398_AddErrorVisitorStatistic.resx">
       <DependentUpon>201806241500398_AddErrorVisitorStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806251738551_UpdateAuditable.resx">
+      <DependentUpon>201806251738551_UpdateAuditable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
