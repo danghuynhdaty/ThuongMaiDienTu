@@ -11,12 +11,13 @@ namespace OnlineShop.Service
 {
     public interface IPostCategoryService
     {
-        void Add(PostCategory postCategory);
+        PostCategory Add(PostCategory postCategory);
         void Update(PostCategory postCategory);
-        void Delete(int ID);
+        PostCategory Delete(int ID);
         IEnumerable<PostCategory> GetAll();
         IEnumerable<PostCategory> GetAllByParentID(int parentID);
         PostCategory GetByID(int ID);
+        void SaveChanges();
     }
     public class PostCategoryService : IPostCategoryService
     {
@@ -36,14 +37,14 @@ namespace OnlineShop.Service
         }
 
         #endregion
-        public void Add(PostCategory postCategory)
+        public PostCategory  Add(PostCategory postCategory)
         {
-            _postCategoryRepository.Add(postCategory);
+            return _postCategoryRepository.Add(postCategory);
         }
 
-        public void Delete(int ID)
+        public PostCategory Delete(int ID)
         {
-            _postCategoryRepository.Delete(ID);
+            return _postCategoryRepository.Delete(ID);
         }
 
         public IEnumerable<PostCategory> GetAll()
@@ -59,6 +60,11 @@ namespace OnlineShop.Service
         public PostCategory GetByID(int ID)
         {
             return _postCategoryRepository.GetSingleByID(ID);
+        }
+
+        public void SaveChanges()
+        {
+            _unitOfWork.Commit();
         }
 
         public void Update(PostCategory postCategory)

@@ -7,7 +7,7 @@ namespace OnlineShop.Data.Repositories
 {
     public interface IPostRepository : IRepository<Post>
     {
-        IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow, string[] includes = null);
+        IEnumerable<Post> GetAllByTagPaging(string tag, out int totalRow, int page, int pageSize,  string[] includes = null);
     }
 
     public class PostRepository : BaseRepository<Post>, IPostRepository
@@ -16,7 +16,7 @@ namespace OnlineShop.Data.Repositories
         {
         }
 
-        public IEnumerable<Post> GetAllByTagPaging(string tag, int page = 0, int pageSize = 50, out int totalRow, string[] includes = null)
+        public IEnumerable<Post> GetAllByTagPaging(string tag, out int totalRow,int page = 0, int pageSize = 50,  string[] includes = null)
         {
             var query = from p in DbContext.Posts
                         join pt in DbContext.PostTags
