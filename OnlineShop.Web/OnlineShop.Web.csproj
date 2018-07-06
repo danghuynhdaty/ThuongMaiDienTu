@@ -226,6 +226,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\components\products\product.route.js" />
+    <Content Include="app\components\products\productAddController.js" />
+    <Content Include="app\components\products\productAddView.html" />
+    <Content Include="app\components\products\productEditController.js" />
+    <Content Include="app\components\products\productEditView.html" />
+    <Content Include="app\components\products\productListController.js" />
+    <Content Include="app\components\products\productListView.html" />
     <Content Include="Assets\admin\libs\angular\angular-csp.css" />
     <Content Include="Assets\admin\libs\angular\angular.js" />
     <Content Include="Assets\admin\libs\angular\angular.min.js" />
@@ -245,10 +253,18 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\components\orders\" />
+    <Folder Include="app\components\product_categories\" />
+    <Folder Include="app\components\roles\" />
+    <Folder Include="app\components\users\" />
+    <Folder Include="app\shared\footer\" />
+    <Folder Include="app\shared\navigation\" />
+    <Folder Include="app\shared\services\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\admin\css\" />
+    <Folder Include="Assets\admin\img\" />
+    <Folder Include="Assets\admin\js\" />
     <Folder Include="Assets\client\" />
-    <Folder Include="Scripts\plugins\" />
-    <Folder Include="Scripts\spa\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -264,6 +280,7 @@
     <Content Include="Assets\admin\libs\angular\LICENSE.md" />
     <Content Include="Assets\admin\libs\angular\package.json" />
     <Content Include="Assets\admin\libs\angular\README.md" />
+    <Content Include="app\app.route.js" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
