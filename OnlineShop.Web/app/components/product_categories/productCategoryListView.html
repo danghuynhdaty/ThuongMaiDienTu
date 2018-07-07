@@ -42,12 +42,17 @@
                             <th>Tên danh mục</th>
                             <th>Ngày tạo</th>
                             <th>Trạng thái</th>
+                            <th>Thao tác</th>
                         </tr>
                         <tr ng-repeat="item in productCategories">
                             <td>{{item.ID}}</td>
                             <td>{{item.Name}}</td>
-                            <td>{{item.CreatedDate}}</td>
-                            <td>{{item.Status}}</td>
+                            <td>{{item.CreatedDate | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+                            <td><span class="badge " ng-class="{'bg-success': item.Status==true,'bg-danger': item.Status==false }">{{item.Status | statusFilter}}</span></td>
+                            <td>
+                                <button type="button" class="btn  btn-primary btn-sm"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn  btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+                            </td>
                         </tr>
                     </table>
                 </div>
