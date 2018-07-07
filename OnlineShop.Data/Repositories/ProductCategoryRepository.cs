@@ -5,14 +5,14 @@ using System.Linq;
 
 namespace OnlineShop.Data.Repositories
 {
-    internal interface IProductCategoryRepository : IRepository<ProductCategory>
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
     {
         IEnumerable<ProductCategory> GetByAlias(string alias);
     }
 
     public class ProductCategoryRepository : BaseRepository<ProductCategory>, IProductCategoryRepository
     {
-        protected ProductCategoryRepository(IDbFactory dbFactory) : base(dbFactory)
+        public ProductCategoryRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
 

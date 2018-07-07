@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Blank Page</title>
+    <title>OnlineShop - Trang quản trị</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -179,15 +179,15 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../../index.html" class="nav-link">
+                                    <a ui-sref="product_categories" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Dashboard v1</p>
+                                        <p>Product categories</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../index2.html" class="nav-link">
+                                    <a ui-sref="products" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Dashboard v2</p>
+                                        <p>Sản phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -504,12 +504,22 @@
     <script src="/Assets/admin/js/adminlte.min.js"></script>
     <!-- AngularJS -->
     <script src="/Assets/admin/libs/angular/angular.js"></script>
+    <!--Angular Ui router-->
     <script src="/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <!--Modules-->
     <script src="~/app/shared/modules/onlineshop.common.js"></script>
+    <script src="~/app/shared/services/apiService.js"></script>
     <script src="~/app/components/products/product.module.js"></script>
+    <script src="~/app/components/product_categories/productCategories.module.js"></script>
+    <!--App-->
     <script src="~/app/app.js"></script>
+    <!--Controllers-->-->
+    <!--Home Controller-->-->
+    <script src="~/app/components/home/homeController.js"></script>
+    <!--product Controllers-->-->
     <script src="~/app/components/products/productAddController.js"></script>
     <script src="~/app/components/products/productListController.js"></script>
-    <script src="~/app/components/home/homeController.js"></script>
+    <!--product category Controllers-->-->
+    <script src="~/app/components/product_categories/productCategoryListController.js"></script>
 </body>
 </html>
