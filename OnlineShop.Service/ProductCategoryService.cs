@@ -14,6 +14,7 @@ namespace OnlineShop.Service
         ProductCategory Delete(int ID);
 
         IEnumerable<ProductCategory> GetAll();
+        IEnumerable<ProductCategory> GetAll(string filter);
 
         IEnumerable<ProductCategory> GetAllByParentID(int parentID);
 
@@ -54,6 +55,15 @@ namespace OnlineShop.Service
         public IEnumerable<ProductCategory> GetAll()
         {
             return _ProductCategoryRepository.GetAll();
+        }
+
+        public IEnumerable<ProductCategory> GetAll(string filter)
+        {
+            if (string.IsNullOrEmpty(filter))
+            {
+                return _ProductCategoryRepository.GetAll();
+            }
+            return _ProductCategoryRepository.GetMulti(p => p.Name.Contains(filter) || p.Description.Contains(filter));
         }
 
         public IEnumerable<ProductCategory> GetAllByParentID(int parentID)

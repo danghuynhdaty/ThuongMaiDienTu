@@ -63,8 +63,9 @@ namespace OnlineShop.Web.Infrastructure.Core
                 _errorService.Create(error);
                 _errorService.Save();
             }
-            catch
+            catch (Exception dex)
             {
+                throw (dex);
             }
         }
     }

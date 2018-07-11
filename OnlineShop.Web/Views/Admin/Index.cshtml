@@ -10,7 +10,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" />
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    @*<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">*@
+    <link href="/Assets/admin/libs/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <!-- Toastr -->
+    <link href="/Assets/admin/libs/toastr/toastr.min.css" rel="stylesheet" />
     <!-- Theme style -->
     <link rel="stylesheet" href="/Assets/admin/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
@@ -24,13 +27,13 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="/"><i class="fa fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="../../index3.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="/" class="nav-link">Contact</a>
                 </li>
             </ul>
 
@@ -50,12 +53,12 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
+                    <a class="nav-link" data-toggle="dropdown" href="/">
                         <i class="fa fa-comments-o"></i>
                         <span class="badge badge-danger navbar-badge">3</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
+                        <a href="/" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
                                 <img src="/Assets/admin/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
@@ -71,7 +74,7 @@
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="/" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
                                 <img src="/Assets/admin/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
@@ -87,7 +90,7 @@
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="/" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
                                 <img src="/Assets/admin/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
@@ -103,38 +106,38 @@
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                        <a href="/" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
                 </li>
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
+                    <a class="nav-link" data-toggle="dropdown" href="/">
                         <i class="fa fa-bell-o"></i>
                         <span class="badge badge-warning navbar-badge">15</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">15 Notifications</span>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="/" class="dropdown-item">
                             <i class="fa fa-envelope mr-2"></i> 4 new messages
                             <span class="float-right text-muted text-sm">3 mins</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="/" class="dropdown-item">
                             <i class="fa fa-users mr-2"></i> 8 friend requests
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="/" class="dropdown-item">
                             <i class="fa fa-file mr-2"></i> 3 new reports
                             <span class="float-right text-muted text-sm">2 days</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                        <a href="/" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="/">
                         <i class="fa fa-th-large"></i>
                     </a>
                 </li>
@@ -160,7 +163,7 @@
                         <img src="/Assets/admin/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="/" class="d-block">Alexander Pierce</a>
                     </div>
                 </div>
 
@@ -170,7 +173,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
                                     Dashboard
@@ -208,7 +211,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
                                     Charts
@@ -237,7 +240,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-tree"></i>
                                 <p>
                                     UI Elements
@@ -272,7 +275,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-edit"></i>
                                 <p>
                                     Forms
@@ -301,7 +304,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-table"></i>
                                 <p>
                                     Tables
@@ -334,7 +337,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-envelope-o"></i>
                                 <p>
                                     Mailbox
@@ -363,7 +366,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-book"></i>
                                 <p>
                                     Pages
@@ -404,7 +407,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-plus-square-o"></i>
                                 <p>
                                     Extras
@@ -447,19 +450,19 @@
                         </li>
                         <li class="nav-header">LABELS</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href= class="nav-link">
                                 <i class="nav-icon fa fa-circle-o text-danger"></i>
                                 <p class="text">Important</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-circle-o text-warning"></i>
                                 <p>Warning</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fa fa-circle-o text-info"></i>
                                 <p>Informational</p>
                             </a>
@@ -493,7 +496,7 @@
     </div>
     <!-- ./wrapper -->
     <!-- jQuery -->
-    <script src="/Assets/admin/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/Assets/admin/libs/jquery/dist/jquery.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/Assets/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SlimScroll -->
@@ -506,8 +509,11 @@
     <script src="/Assets/admin/libs/angular/angular.js"></script>
     <!--Angular Ui router-->
     <script src="/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <!--Toastr JS-->
+    <script src="/Assets/admin/libs/toastr/toastr.min.js"></script>
     <!--Modules-->
     <script src="/app/shared/modules/onlineshop.common.js"></script>
+    <script src="/app/shared/services/notificationService.js"></script>
     <script src="/app/shared/services/apiService.js"></script>
     <script src="/app/components/products/product.module.js"></script>
     <script src="/app/components/product_categories/productCategories.module.js"></script>
@@ -525,5 +531,7 @@
     <script src="/app/components/products/productListController.js"></script>
     <!--product category Controllers-->-->
     <script src="/app/components/product_categories/productCategoryListController.js"></script>
+    <script src="/app/components/product_categories/productCategoryAddController.js"></script>
+
 </body>
 </html>
