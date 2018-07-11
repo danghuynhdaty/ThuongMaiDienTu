@@ -1,13 +1,19 @@
 ﻿(function (app) {
     app.controller('productCategoryAddController', productCategoryAddController);
 
-    productCategoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state'];
+    productCategoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state', 'commonService'];
 
-    function productCategoryAddController($scope, apiService, notificationService, $state) {
+    function productCategoryAddController($scope, apiService, notificationService, $state, commonService) {
         $scope.productCategory = {
             CreatedDate: new Date(),
             Status: true
         };
+
+        $scope.getSeoTitle = getSeoTitle;
+
+        function getSeoTitle() {
+            $scope.productCategory.Alias = commonService.getSeoTitle($scope.productCategory.Name);
+        }
 
         function loadparentCategories() {
             apiService.get('/Api/productcategory/getallparents', null, function (result) {
@@ -29,5 +35,7 @@
                 notificationService.displayError('Thêm mới không thành công.');
             });
         }
+
+      
     }
 })(angular.module('onlineshop.product_categories'));

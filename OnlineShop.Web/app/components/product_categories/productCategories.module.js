@@ -14,9 +14,12 @@
             url: '/add_product_category',
             templateUrl: '/app/components/product_categories/productCategoryAddView.html',
             controller: 'productCategoryAddController'
+        }).state('update_product_category', {
+            url: '/update_product_category/:id',
+            templateUrl: '/app/components/product_categories/productCategoryUpdateView.html',
+            controller: 'productCategoryUpdateController'
         });
 
         $urlRouterProvider.otherwise('/admin');
     }
-
 })();
