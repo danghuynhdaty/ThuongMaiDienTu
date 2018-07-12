@@ -17,6 +17,7 @@ namespace OnlineShop.Web.Models
         public string Description { set; get; }
 
         public int? ParentID { set; get; }
+
         public int? DisplayOrder { set; get; }
 
         public string Image { set; get; }
@@ -37,7 +38,6 @@ namespace OnlineShop.Web.Models
 
         public string MetaDescription { set; get; }
 
-        [Required]
         public bool Status { set; get; }
     }
 }

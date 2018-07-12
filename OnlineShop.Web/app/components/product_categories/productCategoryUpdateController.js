@@ -36,7 +36,7 @@
             apiService.put('/api/productcategory/update', $scope.productCategory, function (result) {
                 notificationService.displaySuccess(result.data.Name + ' đã cập nhật!');
                 $state.go('product_categories');
-            }, function () {
+            }, function (error) {
                 notificationService.displayError('Cập nhật không thành công.');
             });
         }

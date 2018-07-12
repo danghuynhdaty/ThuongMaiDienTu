@@ -22,10 +22,9 @@
             <div class="card">
                 <div class="card-header">
                     <h3>Danh sách danh mục sản phẩm</h3>
-                    <button ui-sref="add_product_category" class="btn btn-sm btn-info"><i class="fa fa-plus-circle"></i>Thêm mới</button>
+                    <button ui-sref="add_product_category" class="btn btn-sm btn-info"><i class="fa fa-plus-circle"></i> Thêm mới</button>
                     <div class="clearfix"></div>
                     <div class="card-tools">
-
                         <div class="input-group input-group-sm">
                             <input type="text" ng-model="keyword" name="table_search" class="form-control float-right" placeholder="Tìm kiếm">
                             <div class="input-group-append">
@@ -51,7 +50,7 @@
                             <td><span class="badge " ng-class="{'bg-success': item.Status==true,'bg-danger': item.Status==false }">{{item.Status | statusFilter}}</span></td>
                             <td>
                                 <button type="button" class="btn  btn-primary btn-sm" ui-sref="update_product_category({id:item.ID})"><i class="far fa-edit"></i></button>
-                                <button type="button" class="btn  btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+                                <button type="button" class="btn  btn-danger btn-sm" ng-click="deleteProductCategory(item.ID)"><i class="far fa-trash-alt"></i></button>
                             </td>
                         </tr>
                     </table>
