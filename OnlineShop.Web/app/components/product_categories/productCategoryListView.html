@@ -22,7 +22,8 @@
             <div class="card">
                 <div class="card-header">
                     <h3>Danh sách danh mục sản phẩm</h3>
-                    <button ui-sref="add_product_category" class="btn btn-sm btn-info"><i class="fa fa-plus-circle"></i> Thêm mới</button>
+                    <button  class="btn btn-sm btn-info" ui-sref="add_product_category"><i class="fa fa-plus-circle"></i> Thêm mới</button>
+                    <button  class="btn btn-sm btn-danger" ng-click="deleteMultiple()" id="btnDelete" disabled><i class="far fa-trash-alt"></i> Xóa</button>
                     <div class="clearfix"></div>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
@@ -37,6 +38,7 @@
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">
                         <tr>
+                            <th>    <input name="all" type="checkbox" ng-click="selectAll()"/></th>
                             <th>ID</th>
                             <th>Tên danh mục</th>
                             <th>Ngày tạo</th>
@@ -44,6 +46,7 @@
                             <th>Thao tác</th>
                         </tr>
                         <tr ng-repeat="item in productCategories">
+                            <td><input type="checkbox" name="all" ng-model="item.checked" /></td>
                             <td>{{item.ID}}</td>
                             <td>{{item.Name}}</td>
                             <td>{{item.CreatedDate | date:'dd/MM/yyyy hh:mm:ss'}}</td>
