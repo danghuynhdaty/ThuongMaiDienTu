@@ -4,10 +4,7 @@
     productCategoryAddController.$inject = ['$scope', 'apiService', 'notificationService', '$state', 'commonService'];
 
     function productCategoryAddController($scope, apiService, notificationService, $state, commonService) {
-        $scope.productCategory = {
-            CreatedDate: new Date(),
-            Status: true
-        };
+        $scope.productCategory = {};
 
         $scope.getSeoTitle = getSeoTitle;
 
@@ -35,7 +32,5 @@
                 notificationService.displayError('Thêm mới không thành công.');
             });
         }
-
-      
     }
 })(angular.module('onlineshop.product_categories'));

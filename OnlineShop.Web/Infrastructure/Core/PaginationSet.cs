@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace OnlineShop.Web.Infrastructure.Core
 {
-    public class PaginationSet<T>
+    public class PaginationSet<T> where T : class
     {
         public int Page { get; set; }
 

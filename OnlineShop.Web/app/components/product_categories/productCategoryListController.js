@@ -15,6 +15,7 @@
 
         $scope.deleteMultiple = deleteMultiple;
 
+        //delete multiple record 
         function deleteMultiple() {
             var listId = [];
             $.each($scope.selected, function (i, item) {
@@ -34,6 +35,7 @@
             });
         }
 
+        //select all record
         $scope.isAll = false;
         function selectAll() {
             if ($scope.isAll === false) {
@@ -59,13 +61,14 @@
             }
         }, true);
 
+        //delete a record
         function deleteProductCategory(id) {
             $ngBootbox.confirm('Bạn muốn xóa dữ liệu này?').then(function () {
                 var config = {
                     params: {
                         id: id
                     }
-                }
+                };
                 apiService.del('/api/productcategory/delete', config, function () {
                     notificationService.displaySuccess('Xóa thành công');
                     getProductCategories();
@@ -75,10 +78,12 @@
             });
         }
 
+        //search function
         function search() {
             getProductCategories();
         }
 
+        //get all product category
         function getProductCategories(page) {
             page = page || 0;
             var config = {
@@ -87,10 +92,10 @@
                     page: page,
                     pageSize: 20
                 }
-            }
+            };
             apiService.get('/api/productcategory/getall', config, function (result) {
                 //nếu không tìm thấy một bản ghi nào trong db
-                if (result.data.TotalCount == 0) {
+                if (result.data.TotalCount === 0) {
                     notificationService.displayWarning('Không tìm thấy dữ liệu!');
                 }
                 //else {
