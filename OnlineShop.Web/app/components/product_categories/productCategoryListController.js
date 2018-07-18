@@ -15,7 +15,7 @@
 
         $scope.deleteMultiple = deleteMultiple;
 
-        //delete multiple record 
+        //delete multiple record
         function deleteMultiple() {
             var listId = [];
             $.each($scope.selected, function (i, item) {

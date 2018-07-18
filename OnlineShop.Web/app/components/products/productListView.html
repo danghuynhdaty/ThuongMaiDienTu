@@ -53,7 +53,7 @@
                             <td><span class="badge " ng-class="{'bg-success': item.Status==true,'bg-danger': item.Status==false }">{{item.Status | statusFilter}}</span></td>
                             <td>
                                 <button type="button" class="btn  btn-primary btn-sm"><i class="far fa-edit" ui-sref="update_product({id:item.ID})"></i></button>
-                                <button type="button" class="btn  btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+                                <button type="button" class="btn  btn-danger btn-sm" ng-click="deleteProduct(item.ID)"><i class="far fa-trash-alt"></i></button>
                             </td>
                         </tr>
                     </table>

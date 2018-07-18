@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace OnlineShop.Web.Api
 {
@@ -140,6 +141,61 @@ namespace OnlineShop.Web.Api
                 else
                 {
                     response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
+                return response;
+            });
+        }
+
+        [Route("delete")]
+        [HttpDelete]
+        [AllowAnonymous]
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (ModelState.IsValid)
+                {
+                    var model = _productService.Delete(id);
+                    _productService.SaveChanges();
+                    var responseData = Mapper.Map<Product, ProductViewModel>(model);
+
+                    response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                }
+                else
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
+                return response;
+            });
+        }
+
+        [Route("deletemulti")]
+        [HttpDelete]
+        [AllowAnonymous]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedProducts)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var deleteList = new JavaScriptSerializer().Deserialize<List<int>>(checkedProducts);
+                    foreach (var item in deleteList)
+                    {
+                        _productService.Delete(item);
+                    }
+
+                    _productService.SaveChanges();
+
+                    response = request.CreateResponse(HttpStatusCode.OK, deleteList.Count);
                 }
 
                 return response;
