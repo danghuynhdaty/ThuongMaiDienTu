@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201806261303110_Intergrated-AspnetIdentity.Designer.cs">
       <DependentUpon>201806261303110_Intergrated-AspnetIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807181331069_AddProductTags.cs" />
+    <Compile Include="Migrations\201807181331069_AddProductTags.Designer.cs">
+      <DependentUpon>201807181331069_AddProductTags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806261303110_Intergrated-AspnetIdentity.resx">
       <DependentUpon>201806261303110_Intergrated-AspnetIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807181331069_AddProductTags.resx">
+      <DependentUpon>201807181331069_AddProductTags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

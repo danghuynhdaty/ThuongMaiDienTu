@@ -1,4 +1,5 @@
-﻿using OnlineShop.Data.Infrastructure;
+﻿using OnlineShop.Common;
+using OnlineShop.Data.Infrastructure;
 using OnlineShop.Data.Repositories;
 using OnlineShop.Model.Models;
 using System;
@@ -29,11 +30,15 @@ namespace OnlineShop.Service
 
         private IProductRepository _productRepository;
         private IUnitOfWork _unitOfWork;
+        private ITagRepository _tagRepository;
+        private IProductTagRepository _productTagRepository;
 
-        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork)
+        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork, ITagRepository tagRepository, IProductTagRepository productTagRepository)
         {
             _productRepository = productRepository;
             _unitOfWork = unitOfWork;
+            _tagRepository = tagRepository;
+            _productTagRepository = productTagRepository;
         }
 
         #endregion Initialize
@@ -43,7 +48,34 @@ namespace OnlineShop.Service
         public Product Add(Product product)
         {
             product.CreatedDate = DateTime.Now;
-            return _productRepository.Add(product);
+            var addedProduct = _productRepository.Add(product);
+            _unitOfWork.Commit();
+            if (!string.IsNullOrEmpty(product.Tags))
+            {
+                string[] tags = product.Tags.Split(',');
+                for (int i = 0; i < tags.Length; i++)
+                {
+                    var tagID = StringHelper.ToUnsignString(tags[i]);
+                    if (_tagRepository.Count(p => p.ID == tagID) == 0)
+                    {
+                        Tag tag = new Tag()
+                        {
+                            ID = tagID,
+                            Name = tags[i],
+                            Type = CommonConstants.ProductTag
+                        };
+                        _tagRepository.Add(tag);
+                    }
+                    ProductTag productTag = new ProductTag()
+                    {
+                        ProductID = addedProduct.ID,
+                        TagID = tagID
+                    };
+                    _productTagRepository.Add(productTag);
+                }
+            }
+
+            return addedProduct;
         }
 
         public Product Delete(int id)
@@ -79,6 +111,31 @@ namespace OnlineShop.Service
         {
             product.UpdatedDate = DateTime.Now;
             _productRepository.Update(product);
+            if (!string.IsNullOrEmpty(product.Tags))
+            {
+                string[] tags = product.Tags.Split(',');
+                for (int i = 0; i < tags.Length; i++)
+                {
+                    var tagID = StringHelper.ToUnsignString(tags[i]);
+                    if (_tagRepository.Count(p => p.ID == tagID) == 0)
+                    {
+                        Tag tag = new Tag()
+                        {
+                            ID = tagID,
+                            Name = tags[i],
+                            Type = CommonConstants.ProductTag
+                        };
+                        _tagRepository.Add(tag);
+                    }
+                    _productTagRepository.DeleteMulti(p=>p.ProductID == product.ID);
+                    ProductTag productTag = new ProductTag()
+                    {
+                        ProductID = product.ID,
+                        TagID = tagID
+                    };
+                    _productTagRepository.Add(productTag);
+                }
+            }
         }
 
         #endregion Implementation

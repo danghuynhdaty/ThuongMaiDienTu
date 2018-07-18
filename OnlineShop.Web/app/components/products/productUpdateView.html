@@ -69,6 +69,14 @@
                             <textarea class="form-control" name="content" required ckeditor="ckeditorOptions" ng-model="product.Content"></textarea>
                         </div>
                         <div class="form-group">
+                            <label for="content" class="control-label">Mô tả sản phẩm</label>
+                            <textarea class="form-control" name="content" required ckeditor="ckeditorOptions" ng-model="product.Content"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="metakeyword" class="control-label">Tag sản phẩm</label>
+                            <input type="text" class="form-control" name="metaKeyword" ng-model="product.Tags">
+                        </div>
+                        <div class="form-group">
                             <label for="price" class="control-label">Giá sản phẩm</label>
                             <input type="number" class="form-control" name="price" min="0" ng-min="0" required ng-model="product.Price">
                             <div class="text-danger" ng-show="frmUpdateProduct.price.$error.required && frmUpdateProduct.price.$touched">Giá sản phẩm không được rỗng</div>

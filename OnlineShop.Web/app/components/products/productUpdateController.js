@@ -28,8 +28,8 @@
             });
         };
 
-        //choose imagem
-        $scope.ChooseImage = function () {
+        //choose image
+        $scope.chooseImage = function () {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
                 $scope.$apply(function () {

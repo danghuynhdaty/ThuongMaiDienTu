@@ -1,6 +1,7 @@
 ﻿using OnlineShop.Data.Infrastructure;
 using OnlineShop.Data.Repositories;
 using OnlineShop.Model.Models;
+using System;
 using System.Collections.Generic;
 
 namespace OnlineShop.Service
@@ -45,6 +46,7 @@ namespace OnlineShop.Service
 
         public ProductCategory Add(ProductCategory ProductCategory)
         {
+            ProductCategory.CreatedDate = DateTime.Now;
             return _ProductCategoryRepository.Add(ProductCategory);
         }
 
@@ -84,6 +86,7 @@ namespace OnlineShop.Service
 
         public void Update(ProductCategory ProductCategory)
         {
+            ProductCategory.UpdatedDate = DateTime.Now;
             _ProductCategoryRepository.Update(ProductCategory);
         }
     }

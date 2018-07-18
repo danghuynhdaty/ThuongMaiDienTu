@@ -48,7 +48,7 @@
                             <td><input type="checkbox" name="all" ng-model="item.checked" /></td>
                             <td>{{item.ID}}</td>
                             <td>{{item.Name}}</td>
-                            <td>{{item.CreatedDate | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+                            <td>{{item.CreatedDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
                             <td><span class="badge " ng-class="{'bg-success': item.Status==true,'bg-danger': item.Status==false }">{{item.Status | statusFilter}}</span></td>
                             <td>
                                 <button type="button" class="btn  btn-primary btn-sm" ui-sref="update_product_category({id:item.ID})"><i class="far fa-edit"></i></button>
