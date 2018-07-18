@@ -65,6 +65,13 @@
                             <div class="text-danger" ng-show="frmUpdateProduct.image.$error.required && frmUpdateProduct.image.$touched">Hình ảnh không được rỗng</div>
                         </div>
                         <div class="form-group">
+                            <label for="moreImages" class="control-label">Danh sách hình ảnh</label>
+                            <ul class="list-inline">
+                                <li class="list-inline-item" ng-repeat="img in moreImages track by $index"><img ng-src="{{img}}" width="115" height="65" style="margin-bottom: 5px;" /></li>
+                            </ul>
+                            <button type="button" class="btn btn-info" ng-click="chooseMoreImage()">Chọn ảnh</button>
+                        </div>
+                        <div class="form-group">
                             <label for="content" class="control-label">Mô tả sản phẩm</label>
                             <textarea class="form-control" name="content" required ckeditor="ckeditorOptions" ng-model="product.Content"></textarea>
                         </div>
@@ -74,7 +81,7 @@
                         </div>
                         <div class="form-group">
                             <label for="metakeyword" class="control-label">Tag sản phẩm</label>
-                            <input type="text" class="form-control" name="metaKeyword" ng-model="product.Tags">
+                            <textarea rows="2" type="text" class="form-control" name="metaKeyword" ng-model="product.Tags"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="price" class="control-label">Giá sản phẩm</label>

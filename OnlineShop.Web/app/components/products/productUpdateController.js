@@ -22,6 +22,7 @@
         function getProductDetail() {
             apiService.get('/api/product/getbyid/' + $stateParams.id, null, function success(result) {
                 $scope.product = result.data;
+                $scope.moreImages = JSON.parse($scope.product.MoreImages);
             }, function error(error) {
                 notificationService.displayError('Không lấy được chi tiết sản phẩm');
                 console.log(error);
@@ -34,6 +35,17 @@
             finder.selectActionFunction = function (fileUrl) {
                 $scope.$apply(function () {
                     $scope.product.Image = fileUrl;
+                });
+            }
+            finder.popup();
+        }
+
+        //choose more image
+        $scope.chooseMoreImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.moreImages.push(fileUrl);
                 });
             }
             finder.popup();
@@ -53,6 +65,7 @@
 
         $scope.updateProduct = updateProduct;
         function updateProduct() {
+            $scope.product.MoreImages = JSON.stringify($scope.moreImages);
             apiService.put('/api/product/update/', $scope.product, function success() {
                 notificationService.displaySuccess('Cập nhật sản phẩm ' + $scope.product.Name + ' thành công');
                 $state.go('products');
