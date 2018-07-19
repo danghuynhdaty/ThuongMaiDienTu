@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 namespace OnlineShop.Web.Api
 {
     [RoutePrefix("api/product")]
+    [Authorize]
     public class ProductController : BaseApiController
     {
         #region Initialize
@@ -93,7 +94,6 @@ namespace OnlineShop.Web.Api
 
         [Route("create")]
         [HttpPost]
-        [AllowAnonymous]
         public HttpResponseMessage Create(HttpRequestMessage request, ProductViewModel productVm)
         {
             return CreateHttpResponse(request, () =>
@@ -103,7 +103,7 @@ namespace OnlineShop.Web.Api
                 {
                     var newProduct = new Product();
                     newProduct.UpdateProduct(productVm);
-
+                    newProduct.CreatedBy = User.Identity.Name;
                     _productService.Add(newProduct);
                     _productService.SaveChanges();
 
@@ -121,7 +121,6 @@ namespace OnlineShop.Web.Api
 
         [Route("update")]
         [HttpPut]
-        [AllowAnonymous]
         public HttpResponseMessage Update(HttpRequestMessage request, ProductViewModel productVm)
         {
             return CreateHttpResponse(request, () =>
@@ -131,7 +130,7 @@ namespace OnlineShop.Web.Api
                 {
                     var updateProduct = new Product();
                     updateProduct.UpdateProduct(productVm);
-
+                    updateProduct.UpdatedBy = User.Identity.Name;
                     _productService.Update(updateProduct);
                     _productService.SaveChanges();
 
@@ -149,7 +148,6 @@ namespace OnlineShop.Web.Api
 
         [Route("delete")]
         [HttpDelete]
-        [AllowAnonymous]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -174,7 +172,6 @@ namespace OnlineShop.Web.Api
 
         [Route("deletemulti")]
         [HttpDelete]
-        [AllowAnonymous]
         public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedProducts)
         {
             return CreateHttpResponse(request, () =>

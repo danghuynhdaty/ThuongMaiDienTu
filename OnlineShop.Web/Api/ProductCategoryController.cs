@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 namespace OnlineShop.Web.Api
 {
     [RoutePrefix("api/productcategory")]
+    [Authorize]
     public class ProductCategoryController : BaseApiController
     {
         #region Initialize
@@ -76,7 +77,6 @@ namespace OnlineShop.Web.Api
 
         [Route("create")]
         [HttpPost]
-        [AllowAnonymous]
         public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel productCategoryViewModel)
         {
             return CreateHttpResponse(request, () =>
@@ -91,7 +91,7 @@ namespace OnlineShop.Web.Api
                 {
                     var newProductCategory = new ProductCategory();
                     newProductCategory.UpdateProductCategory(productCategoryViewModel);
-
+                    newProductCategory.CreatedBy = User.Identity.Name;
                     _productCategoryService.Add(newProductCategory);
                     _productCategoryService.SaveChanges();
 
@@ -106,7 +106,6 @@ namespace OnlineShop.Web.Api
 
         [Route("delete")]
         [HttpDelete]
-        [AllowAnonymous]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -134,7 +133,6 @@ namespace OnlineShop.Web.Api
 
         [Route("deletemulti")]
         [HttpDelete]
-        [AllowAnonymous]
         public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedProductCategories)
         {
             return CreateHttpResponse(request, () =>
@@ -164,7 +162,6 @@ namespace OnlineShop.Web.Api
 
         [Route("update")]
         [HttpPut]
-        [AllowAnonymous]
         public HttpResponseMessage Update(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
         {
             return CreateHttpResponse(request, () =>
@@ -179,7 +176,7 @@ namespace OnlineShop.Web.Api
                     var dbProductCategory = _productCategoryService.GetByID(productCategoryVm.ID);
 
                     dbProductCategory.UpdateProductCategory(productCategoryVm);
-                    dbProductCategory.UpdatedDate = DateTime.Now;
+                    dbProductCategory.UpdatedBy = User.Identity.Name;
 
                     _productCategoryService.Update(dbProductCategory);
                     _productCategoryService.SaveChanges();

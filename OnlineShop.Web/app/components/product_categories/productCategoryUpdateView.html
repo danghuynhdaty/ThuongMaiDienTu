@@ -27,25 +27,25 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal" role="form" novalidate name="frmAddProductCategory" ng-submit="addProductCategory()">
+                <form class="form-horizontal" role="form" novalidate name="frmUpdateProductCategory" ng-submit="updateProductCategory()">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name" class="control-label">Tên danh mục</label>
                             <input type="text" class="form-control" ng-change="getSeoTitle()" name="name" required ng-maxlength="256" ng-model="productCategory.Name">
-                            <div class="text-danger" ng-show="frmAddProductCategory.name.$error.required && frmAddProductCategory.name.$touched">Tên danh mục không được rỗng</div>
-                            <div class="text-danger" ng-show="frmAddProductCategory.name.$error.maxlength && frmAddProductCategory.name.$touched">Tên danh mục không được dài hơn 256 ký tự</div>
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.name.$error.required && frmUpdateProductCategory.name.$touched">Tên danh mục không được rỗng</div>
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.name.$error.maxlength && frmUpdateProductCategory.name.$touched">Tên danh mục không được dài hơn 256 ký tự</div>
                         </div>
                         <div class="form-group">
                             <label for="alias" class="control-label">Tiêu đề SEO</label>
                             <input type="text" class="form-control" name="alias" required ng-model="productCategory.Alias">
-                            <div class="text-danger" ng-show="frmAddProductCategory.alias.$error.required && frmAddProductCategory.alias.$touched">Tiêu đề SEO không được rỗng</div>
-                            <div class="text-danger" ng-show="frmAddProductCategory.alias.$error.maxlength && frmAddProductCategory.alias.$touched">Tiêu đề SEO không được dài hơn 256 ký tự</div>
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.alias.$error.required && frmUpdateProductCategory.alias.$touched">Tiêu đề SEO không được rỗng</div>
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.alias.$error.maxlength && frmUpdateProductCategory.alias.$touched">Tiêu đề SEO không được dài hơn 256 ký tự</div>
                         </div>
                         <div class="form-group">
                             <label for="description" class="control-label">Mô tả ngắn</label>
                             <textarea rows="5" type="text" class="form-control" name="description" required ng-maxlength="500" ng-model="productCategory.Description"></textarea>
-                            <div class="text-danger" ng-show="frmAddProductCategory.description.$error.required && frmAddProductCategory.description.$touched">Mô tả ngắn không được rỗng</div>
-                            <div class="text-danger" ng-show="frmAddProductCategory.description.$error.maxlength && frmAddProductCategory.description.$touched">Mô tả ngắn không được dài hơn 500 ký tự</div>
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.description.$error.required && frmUpdateProductCategory.description.$touched">Mô tả ngắn không được rỗng</div>
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.description.$error.maxlength && frmUpdateProductCategory.description.$touched">Mô tả ngắn không được dài hơn 500 ký tự</div>
                         </div>
                         <div class="form-group">
                             <label for="parentId" class="control-label">Danh mục cha</label>
@@ -57,26 +57,23 @@
                         <div class="form-group">
                             <label for="displayOrder" class="control-label">Thứ tự hiển thị</label>
                             <input type="number" class="form-control" name="displayOrder" required ng-model="productCategory.DisplayOrder">
-                            <div class="text-danger" ng-show="frmAddProductCategory.displayOrder.$error.required && frmAddProductCategory.displayOrder.$touched">Thứ tự hiển thị không được rỗng</div>
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.displayOrder.$error.required && frmUpdateProductCategory.displayOrder.$touched">Thứ tự hiển thị không được rỗng</div>
                         </div>
                         <div class="form-group">
                             <label for="image" class="control-label">Hình ảnh</label>
                             <input type="text" class="form-control" name="image" required ng-model="productCategory.Image">
-                            <div class="text-danger" ng-show="frmAddProductCategory.image.$error.required && frmAddProductCategory.image.$touched">Hình ảnh không được rỗng</div>
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.image.$error.required && frmUpdateProductCategory.image.$touched">Hình ảnh không được rỗng</div>
                         </div>
                         <div class="form-group">
                             <label for="metakeyword" class="control-label">Meta Keyword</label>
-                            <input type="text" class="form-control" name="metaKeyword" required ng-maxlength="256" ng-model="productCategory.MetaKeyword">
-                            <div class="text-danger" ng-show="frmAddProductCategory.description.$error.required && frmAddProductCategory.metaKeyword.$touched">Meta keyword không được rỗng</div>
-                            <div class="text-danger" ng-show="frmAddProductCategory.description.$error.maxlength && frmAddProductCategory.metaKeyword.$touched">Meta keyword không được dài hơn 256 ký tự</div>
+                            <input type="text" class="form-control" name="metaKeyword"  ng-maxlength="256" ng-model="productCategory.MetaKeyword">
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.description.$error.maxlength && frmUpdateProductCategory.metaKeyword.$touched">Meta keyword không được dài hơn 256 ký tự</div>
                         </div>
                         <div class="form-group">
                             <label for="metaDescription" class="control-label">Meta Description</label>
-                            <textarea rows="5" class="form-control" ng-model="productCategory.MetaDescription" name="metaDescription" required ng-maxlength="256"></textarea>
-                            <div class="text-danger" ng-show="frmAddProductCategory.metaDescription.$error.required && frmAddProductCategory.metaDescription.$touched">
-                                Meta Description không được rỗng
-                            </div>
-                            <div class="text-danger" ng-show="frmAddProductCategory.metaDescription.$error.maxlength && frmAddProductCategory.metaDescription.$touched">
+                            <textarea rows="5" class="form-control" ng-model="productCategory.MetaDescription" name="metaDescription"  ng-maxlength="256"></textarea>
+                            
+                            <div class="text-danger" ng-show="frmUpdateProductCategory.metaDescription.$error.maxlength && frmUpdateProductCategory.metaDescription.$touched">
                                 Meta Description không được dài hơn 500 ký tự
                             </div>
                         </div>
@@ -99,7 +96,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-info" ng-disabled="frmAddProductCategory.$invalid">Lưu</button>
+                        <button type="submit" class="btn btn-info" ng-disabled="frmUpdateProductCategory.$invalid">Lưu</button>
                         <button ui-sref="product_categories" class="btn btn-default float-right">Hủy</button>
                     </div>
                     <!-- /.card-footer -->

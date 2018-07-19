@@ -11,6 +11,7 @@ using OnlineShop.Web.Infrastructure.Extension;
 namespace OnlineShop.Web.Api
 {
     [RoutePrefix("api/postcategory")]
+    [Authorize]
     public class PostCategoryController : BaseApiController
     {
         private IPostCategoryService _postCategoryService;
