@@ -1521,6 +1521,24 @@
     <Content Include="Assets\admin\libs\ckfinder\skins\v1\uipanel.css" />
     <Content Include="Assets\admin\libs\ckfinder\translations.txt" />
     <Content Include="Assets\admin\libs\fastclick\lib\fastclick.js" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\brands.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\brands.min.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fa-brands.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fa-brands.min.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fa-regular.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fa-regular.min.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fa-solid.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fa-solid.min.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fontawesome-all.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fontawesome-all.min.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fontawesome.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\fontawesome.min.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\regular.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\regular.min.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\solid.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\solid.min.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\v4-shims.css" />
+    <Content Include="Assets\admin\libs\fontawesome\web-fonts-with-css\css\v4-shims.min.css" />
     <Content Include="Assets\admin\libs\ionicons\cheatsheet.html" />
     <Content Include="Assets\admin\libs\ionicons\css\ionicons.css" />
     <Content Include="Assets\admin\libs\ionicons\css\ionicons.min.css" />
@@ -4565,6 +4583,8 @@
     <Content Include="Assets\admin\libs\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Assets\admin\libs\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Assets\admin\libs\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="ConnectionStrings.config" />
+    <Content Include="AppSettings.config" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>

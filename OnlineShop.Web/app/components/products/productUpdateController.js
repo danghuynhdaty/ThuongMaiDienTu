@@ -57,7 +57,10 @@
                 $scope.productCategories = result
                     .data;
             }, function (error) {
-                notificationService.displayError('Không thể lấy danh mục sản phẩm');
+                if (error.status !== 401) {
+                    notificationService.displayError('Không thể lấy danh mục sản phẩm');
+                }
+                console.log(error);
             });
         }
 

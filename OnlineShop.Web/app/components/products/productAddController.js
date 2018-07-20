@@ -33,7 +33,9 @@
             apiService.get('/api/product/getproductcategories', null, function (result) {
                 $scope.productCategories = result.data;
             }, function (error) {
-                notificationService.displayError('Không tải được danh mục sản phẩm');
+                if (error.status !== 401) {
+                    notificationService.displayError('Không tải được danh mục sản phẩm');
+                }
                 console.log(error);
             });
         }

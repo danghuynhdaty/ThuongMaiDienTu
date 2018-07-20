@@ -36,7 +36,9 @@
                     $scope.totalCount = result.data.TotalCount;
                 }
             }, function (error) {
-                notificationService.displayError('Không tải được dữ liệu');
+                if (error.status !== 401) {
+                    notificationService.displayError('Không tải được dữ liệu');
+                }
                 console.log(error);
             });
         }

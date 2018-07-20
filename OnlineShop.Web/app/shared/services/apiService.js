@@ -18,7 +18,11 @@
             $http.get(url, params).then(function (result) {
                 success(result);
             }, function (error) {
-                failure(error);
+                if (error.status === 401) {
+                    notificationService.displayError('Yêu cầu đăng nhập!');
+                } else if (error != null) {
+                    failure(error);
+                }
             });
         }
 
