@@ -1,0 +1,32 @@
+﻿<div class="login-box">
+    <div class="login-logo">
+       <b>Online Shop</b> Admin
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Đăng nhập để bắt đầu phiên làm việc</p>
+            <form novalidate role="form" ng-submit="loginSubmit()">
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Tên đăng nhập" ng-model="loginData.userName">
+                </div>        
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Mật khẩu" ng-model="loginData.password">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-outline-primary btn-block">Đăng nhập</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+</div>
+<!-- /.login-box -->
